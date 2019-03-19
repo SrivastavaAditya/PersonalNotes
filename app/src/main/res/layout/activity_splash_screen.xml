@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/splash_screen_bg"
     tools:context=".activities.SplashScreenActivity">
 
     <ImageView
@@ -31,7 +32,7 @@
         android:layout_marginBottom="8dp"
         app:search_defaultStartLoading="true"
         app:search_lensBorderWidth="6dp"
-        app:search_lensColor="@color/colorPrimary"
+        app:search_lensColor="@color/lens_color"
         app:search_lensHandleLength="20dp"
         app:search_lensRadius="18dp"
         app:search_xRangeToSearch="140dp"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/loading_please_wait"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="@dimen/sp20"
         app:layout_constraintEnd_toEndOf="@+id/progress_bar"
         app:layout_constraintStart_toStartOf="@+id/progress_bar"

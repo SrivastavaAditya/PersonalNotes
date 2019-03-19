@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MyPersonalDiary</string>
     <string name="loading_please_wait">Loading Please Wait</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_fragment">Login Fragment</string>
+    <string name="register_fragment">Register Fragment</string>
 </resources>
