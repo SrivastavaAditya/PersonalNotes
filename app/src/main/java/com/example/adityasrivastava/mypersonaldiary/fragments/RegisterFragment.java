@@ -11,8 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
+import com.example.adityasrivastava.mypersonaldiary.utils.preferences.SharedPreferenceStorage;
 
 public class RegisterFragment extends Fragment {
+
+    SharedPreferenceStorage sharedPreferenceStorage;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -27,6 +30,12 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        sharedPreferenceStorage = new SharedPreferenceStorage(getContext());
+        sharedPreferenceStorage.initializePreferences();
+
+        if(!sharedPreferenceStorage.getRegisterPreference()){
+            sharedPreferenceStorage.setRegisterPreference(true);
+        }
         return inflater.inflate(R.layout.fragment_register, container, false);
     }
 
