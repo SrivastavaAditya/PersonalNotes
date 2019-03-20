@@ -14,11 +14,23 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * The type Splash screen activity.
+ */
 public class SplashScreenActivity extends AppCompatActivity {
 
+    /**
+     * The Unbinder.
+     */
     Unbinder unbinder;
+    /**
+     * The Preference storage.
+     */
     SharedPreferenceStorage preferenceStorage;
 
+    /**
+     * The Tv loader.
+     */
     @BindView(R.id.text_loader)
     TextView tvLoader;
 

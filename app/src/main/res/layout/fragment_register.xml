@@ -7,19 +7,108 @@
     android:layout_height="match_parent"
     android:clickable="true"
     android:focusable="true"
-    tools:context=".fragments.RegisterFragment">
+    android:background="@color/login_screen_blue"
+    tools:context=".fragments.LoginFragment">
 
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:background="@drawable/input_box_curved" 
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    
     <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/welcome"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp30"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <EditText
+        android:id="@+id/edit_user_name_register"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_box_curved"
+        android:hint="@string/username"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="@dimen/dp10"
+        android:textSize="@dimen/sp15"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/edit_password_register"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_box_curved"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="@dimen/dp10"
+        android:textSize="@dimen/sp15"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/edit_user_name_register" />
+
+    <EditText
+        android:id="@+id/edit_confirm_password_register"
+        android:layout_width="@dimen/dp250"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/input_box_curved"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="@dimen/dp10"
+        android:textSize="@dimen/sp15"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/edit_password_register" />
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/login_button_bg"
+        android:text="@string/register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/edit_password_register"
+        app:layout_constraintStart_toStartOf="@+id/edit_password_register"
+        app:layout_constraintTop_toBottomOf="@+id/edit_confirm_password_register" />
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progress_bar_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/register_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:indeterminateDrawable="@drawable/progress_bar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login_fragment">Login Fragment</string>
     <string name="register_fragment">Register Fragment</string>
+    <string name="welcome">Welcome</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="please_enter_username">Please Enter Username</string>
+    <string name="please_enter_password">Please Enter Password</string>
+    <string name="minimum_three_charaters_required">Minimum 3 characters required</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="pasword_confirm_password_do_not_match">Password and Confirm Passwords do not match</string>
 </resources>

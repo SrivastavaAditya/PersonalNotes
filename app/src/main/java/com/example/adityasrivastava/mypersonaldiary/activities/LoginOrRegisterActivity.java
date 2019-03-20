@@ -13,10 +13,19 @@ import com.example.adityasrivastava.mypersonaldiary.fragments.LoginFragment;
 import com.example.adityasrivastava.mypersonaldiary.fragments.RegisterFragment;
 import com.example.adityasrivastava.mypersonaldiary.utils.preferences.SharedPreferenceStorage;
 
+/**
+ * The type Login or register activity.
+ */
 public class LoginOrRegisterActivity extends AppCompatActivity {
 
+    /**
+     * The Unbinder.
+     */
     Unbinder unbinder;
 
+    /**
+     * The Preference storage.
+     */
     SharedPreferenceStorage preferenceStorage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -6,6 +6,9 @@ import com.example.adityasrivastava.mypersonaldiary.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * The type Home activity.
+ */
 public class HomeActivity extends AppCompatActivity {
 
     @Override

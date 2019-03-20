@@ -6,5 +6,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="lens_color">#82f23c</color>
-    <color name="splash_screen_bg">	#df9812</color>
+    <color name="splash_screen_bg">#df9812</color>
+    <color name="login_button_blue">#00588d</color>
+    <color name="login_screen_blue">#0075bb</color>
 </resources>
