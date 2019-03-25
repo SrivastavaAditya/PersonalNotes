@@ -4,12 +4,10 @@ import android.os.Bundle;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 /**
  * The type Home activity.
  */
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

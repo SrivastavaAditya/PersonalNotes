@@ -16,4 +16,12 @@
     <string name="register">Register</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="pasword_confirm_password_do_not_match">Password and Confirm Passwords do not match</string>
+    <string name="change_theme">Change Theme</string>
+    <string name="apply">Apply</string>
+    <string name="select_theme">Select Theme</string>
+    <string name="logout">Logout</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure, you want to logout ?</string>
+    <string name="close">Close</string>
+    <string name="yes_logout">Yes, Logout</string>
+    <string name="no_stay">No, Stay</string>
 </resources>

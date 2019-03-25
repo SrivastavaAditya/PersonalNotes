@@ -1,7 +1,6 @@
 package com.example.adityasrivastava.mypersonaldiary.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +10,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,7 +89,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
         View rootView = inflater.inflate(R.layout.fragment_register, container, false);
         unbinder = ButterKnife.bind(this, rootView);
-        progressBar.setVisibility(View.VISIBLE);
+        showProgressBar();
         btnRegister.setOnClickListener(this);
         return rootView;
     }
@@ -97,7 +97,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -115,6 +114,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         switch(view.getId()){
             case R.id.button_register:
                 if(validate()){
+                    showProgressBar();
                     if(!sharedPreferenceStorage.getRegisterPreference()) {
                         sharedPreferenceStorage.setRegisterPreference(true);
                         sharedPreferenceStorage.setIsLoggedInPreference(false);
@@ -161,5 +161,16 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         }
 
         return true;
+    }
+
+    public void showProgressBar(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        },1000);
+
+        progressBar.setVisibility(View.GONE);
     }
 }

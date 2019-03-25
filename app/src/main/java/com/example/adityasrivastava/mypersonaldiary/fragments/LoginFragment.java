@@ -2,7 +2,6 @@ package com.example.adityasrivastava.mypersonaldiary.fragments;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,8 +23,6 @@ import android.widget.TextView;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
 import com.example.adityasrivastava.mypersonaldiary.activities.HomeActivity;
-import com.example.adityasrivastava.mypersonaldiary.activities.LoginOrRegisterActivity;
-import com.example.adityasrivastava.mypersonaldiary.activities.SplashScreenActivity;
 import com.example.adityasrivastava.mypersonaldiary.utils.preferences.SharedPreferenceStorage;
 
 import java.util.Objects;
@@ -93,7 +91,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_login, container, false);
         unbinder = ButterKnife.bind(this, rootView);
-        progressBar.setVisibility(View.VISIBLE);
+        showProgressBar();
         btnLogin.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
         return rootView;
@@ -102,7 +100,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        progressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -122,6 +119,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 if(validate()){
                     if(validateCredentials()){
                         if(!sharedPreferenceStorage.getLoginPreference()){
+                            showProgressBar();
                             sharedPreferenceStorage.setIsLoggedInPreference(true);
                             Intent intent = new Intent(getActivity(), HomeActivity.class);
                             startActivity(intent);
@@ -159,5 +157,16 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             }
         }
         return true;
+    }
+
+    public void showProgressBar(){
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        },1000);
+
+        progressBar.setVisibility(View.GONE);
     }
 }

@@ -9,4 +9,7 @@
     <color name="splash_screen_bg">#df9812</color>
     <color name="login_button_blue">#00588d</color>
     <color name="login_screen_blue">#0075bb</color>
+    <color name="app_text_color">#484848</color>
+    <color name="home_bg">#83FED9</color>
+    <color name="blue_border">#15B988</color>
 </resources>

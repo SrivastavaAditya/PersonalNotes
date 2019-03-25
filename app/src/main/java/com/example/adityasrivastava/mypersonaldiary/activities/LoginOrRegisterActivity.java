@@ -1,12 +1,10 @@
 package com.example.adityasrivastava.mypersonaldiary.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import android.os.Bundle;
-import android.view.View;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
 import com.example.adityasrivastava.mypersonaldiary.fragments.LoginFragment;
