@@ -20,27 +20,59 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * The type Logout dialog.
+ */
 public class LogoutDialog implements View.OnClickListener {
 
+    /**
+     * The Unbinder.
+     */
     Unbinder unbinder;
+    /**
+     * The Dialog.
+     */
     Dialog dialog;
 
+    /**
+     * The Btn close.
+     */
     @BindView(R.id.btn_close)
     TextView btnClose;
 
+    /**
+     * The Btn logout.
+     */
     @BindView(R.id.button_logout)
     Button btnLogout;
 
+    /**
+     * The Btn no.
+     */
     @BindView(R.id.button_no)
     Button btnNo;
 
+    /**
+     * Get instance logout dialog.
+     *
+     * @param context the context
+     * @return the logout dialog
+     */
     public static LogoutDialog getInstance(Context context){
         return new LogoutDialog(context);
     }
 
+    /**
+     * Instantiates a new Logout dialog.
+     */
     public LogoutDialog() {
     }
 
+    /**
+     * Instantiates a new Logout dialog.
+     *
+     * @param context the context
+     */
     public LogoutDialog(Context context) {
         dialog = new Dialog(context);
 

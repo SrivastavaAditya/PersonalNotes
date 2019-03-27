@@ -163,6 +163,9 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         return true;
     }
 
+    /**
+     * Show progress bar.
+     */
     public void showProgressBar(){
         new CountDownTimer(1000, 100){
 

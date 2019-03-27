@@ -80,7 +80,8 @@ public class SplashScreenActivity extends AppCompatActivity {
                             }else{
                                 Intent intent = new Intent(SplashScreenActivity.this, LoginOrRegisterActivity.class);
                                 startActivity(intent);
-                                finish();                            }
+                                finish();
+                            }
                             break;
                     }
                 }

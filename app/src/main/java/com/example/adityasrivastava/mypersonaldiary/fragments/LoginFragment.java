@@ -70,8 +70,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
      */
     @BindView(R.id.progress_bar_login)
     ProgressBar progressBar;
-    @BindView(R.id.text_change_password)
-    TextView tvChangePassword;
+    /**
+     * The Tv register.
+     */
     @BindView(R.id.text_register)
     TextView tvRegister;
 
@@ -99,7 +100,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         showProgressBar();
         btnLogin.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
-        tvChangePassword.setOnClickListener(this);
         tvRegister.setOnClickListener(this);
         return rootView;
     }
@@ -140,9 +140,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.text_register:
-                break;
-
-            case R.id.text_change_password:
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(android.R.id.content, new RegisterFragment()).commit();
                 break;
 
             default:
@@ -172,6 +171,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         return true;
     }
 
+    /**
+     * Show progress bar.
+     */
     public void showProgressBar(){
         new CountDownTimer(5000, 100){
 

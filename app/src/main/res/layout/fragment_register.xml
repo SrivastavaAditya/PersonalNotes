@@ -11,9 +11,9 @@
     tools:context=".fragments.LoginFragment">
 
     <RelativeLayout
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:background="@drawable/input_box_curved" 
+        android:layout_width="@dimen/dp350"
+        android:layout_height="@dimen/dp425"
+        android:background="@drawable/input_box_curved"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

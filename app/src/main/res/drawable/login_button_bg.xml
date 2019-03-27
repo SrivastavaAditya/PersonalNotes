@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <stroke
-        android:color="@color/white"
+        android:color="@color/login_button_blue"
         android:width="@dimen/dp2"/>
 
     <corners
         android:radius="@dimen/dp20"/>
 
     <solid
-        android:color="@color/login_button_blue"></solid>
+        android:color="@color/login_screen_blue"></solid>
 </shape>

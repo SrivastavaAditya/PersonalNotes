@@ -16,6 +16,9 @@ import org.greenrobot.eventbus.ThreadMode;
  */
 public class HomeActivity extends BaseActivity {
 
+    /**
+     * The Preference storage.
+     */
     SharedPreferenceStorage preferenceStorage;
 
     @Override
@@ -42,6 +45,11 @@ public class HomeActivity extends BaseActivity {
         }
     }
 
+    /**
+     * On logout event.
+     *
+     * @param logoutEvent the logout event
+     */
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onLogoutEvent(LogoutEvent logoutEvent){
         if(preferenceStorage.getLoginPreference()){

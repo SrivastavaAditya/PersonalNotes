@@ -9,7 +9,11 @@ import android.view.MenuItem;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
 import com.example.adityasrivastava.mypersonaldiary.dialogs.LogoutDialog;
+import com.example.adityasrivastava.mypersonaldiary.fragments.ChangePasswordFragment;
 
+/**
+ * The type Base activity.
+ */
 public class BaseActivity extends AppCompatActivity {
 
     @Override
@@ -29,6 +33,11 @@ public class BaseActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.menu_logout:
                 LogoutDialog.getInstance(this);
+                break;
+
+            case R.id.menu_change_password:
+                getSupportFragmentManager().beginTransaction()
+                        .add(android.R.id.content, new ChangePasswordFragment()).commit();
                 break;
         }
         return super.onOptionsItemSelected(item);
