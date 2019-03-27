@@ -1,16 +1,38 @@
 package com.example.adityasrivastava.mypersonaldiary.dialogs;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
+import com.example.adityasrivastava.mypersonaldiary.events.LogoutEvent;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.Objects;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class LogoutDialog {
+public class LogoutDialog implements View.OnClickListener {
 
     Unbinder unbinder;
     Dialog dialog;
+
+    @BindView(R.id.btn_close)
+    TextView btnClose;
+
+    @BindView(R.id.button_logout)
+    Button btnLogout;
+
+    @BindView(R.id.button_no)
+    Button btnNo;
 
     public static LogoutDialog getInstance(Context context){
         return new LogoutDialog(context);
@@ -22,6 +44,35 @@ public class LogoutDialog {
     public LogoutDialog(Context context) {
         dialog = new Dialog(context);
 
-        dialog.setContentView(R.layout.exit_dialog);
+        View rootView = ((Activity)context).getLayoutInflater().inflate(R.layout.logout_dialog, null);
+        dialog.setContentView(rootView);
+        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+        unbinder = ButterKnife.bind(this, rootView);
+        btnClose.setOnClickListener(this);
+        btnLogout.setOnClickListener(this);
+        btnNo.setOnClickListener(this);
+        dialog.show();
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.btn_close:
+                dialog.dismiss();
+                break;
+
+            case R.id.button_logout:
+                //To-Do
+                dialog.dismiss();
+                EventBus.getDefault().postSticky(new LogoutEvent());
+                break;
+
+            case R.id.button_no:
+                dialog.dismiss();
+                break;
+
+            default:
+                break;
+        }
     }
 }

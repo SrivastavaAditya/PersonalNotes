@@ -11,7 +11,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-import android.os.Handler;
+import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -160,13 +160,17 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     public void showProgressBar(){
-        new Handler().postDelayed(new Runnable() {
+        new CountDownTimer(5000, 100){
+
             @Override
-            public void run() {
+            public void onTick(long l) {
                 progressBar.setVisibility(View.VISIBLE);
             }
-        },1000);
 
-        progressBar.setVisibility(View.GONE);
+            @Override
+            public void onFinish() {
+                progressBar.setVisibility(View.GONE);
+            }
+        };
     }
 }

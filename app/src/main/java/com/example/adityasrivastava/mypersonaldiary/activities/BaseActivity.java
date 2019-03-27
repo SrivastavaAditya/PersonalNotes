@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
+import com.example.adityasrivastava.mypersonaldiary.dialogs.LogoutDialog;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -27,6 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_logout:
+                LogoutDialog.getInstance(this);
                 break;
         }
         return super.onOptionsItemSelected(item);
