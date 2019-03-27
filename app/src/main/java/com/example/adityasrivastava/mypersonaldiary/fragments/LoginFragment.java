@@ -70,6 +70,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
      */
     @BindView(R.id.progress_bar_login)
     ProgressBar progressBar;
+    @BindView(R.id.text_change_password)
+    TextView tvChangePassword;
+    @BindView(R.id.text_register)
+    TextView tvRegister;
+
 
     /**
      * Instantiates a new Login fragment.
@@ -94,6 +99,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         showProgressBar();
         btnLogin.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
+        tvChangePassword.setOnClickListener(this);
+        tvRegister.setOnClickListener(this);
         return rootView;
     }
 
@@ -130,6 +137,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.text_forgot_password:
+                break;
+
+            case R.id.text_register:
+                break;
+
+            case R.id.text_change_password:
                 break;
 
             default:

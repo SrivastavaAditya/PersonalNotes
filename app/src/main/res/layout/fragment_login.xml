@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintVertical_bias="0.19999999" />
 
     <EditText
         android:id="@+id/edit_user_name"
@@ -73,6 +73,20 @@
         android:background="@drawable/login_button_bg"/>
 
     <TextView
+        android:id="@+id/text_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/register"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_forgot_password" />
+
+    <TextView
         android:id="@+id/text_forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -81,9 +95,30 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
-        app:layout_constraintStart_toStartOf="@+id/button_login"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_password"
         app:layout_constraintTop_toBottomOf="@+id/button_login" />
 
+    <TextView
+        android:id="@+id/text_change_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/change_password"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/edit_password"
+        app:layout_constraintTop_toTopOf="@+id/text_forgot_password" />
+
+    <View
+        android:layout_width="@dimen/dp2"
+        android:layout_height="@dimen/dp20"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/text_change_password"
+        app:layout_constraintStart_toEndOf="@+id/text_forgot_password"
+        app:layout_constraintTop_toBottomOf="@+id/button_login" />
     <ProgressBar
         android:visibility="gone"
         android:id="@+id/progress_bar_login"

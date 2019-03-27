@@ -24,4 +24,5 @@
     <string name="close">Close</string>
     <string name="yes_logout">Yes, Logout</string>
     <string name="no_stay">No, Stay</string>
+    <string name="change_password">Change Password</string>
 </resources>
