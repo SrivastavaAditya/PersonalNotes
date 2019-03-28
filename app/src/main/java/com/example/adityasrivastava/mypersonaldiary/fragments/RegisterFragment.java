@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
+import com.example.adityasrivastava.mypersonaldiary.dbHelper.SQLiteHelper;
+import com.example.adityasrivastava.mypersonaldiary.models.UserCredentials;
 import com.example.adityasrivastava.mypersonaldiary.utils.preferences.SharedPreferenceStorage;
 
 import java.util.Objects;
@@ -114,13 +116,25 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
         switch(view.getId()){
             case R.id.button_register:
                 if(validate()){
-                    showProgressBar();
-                    if(!sharedPreferenceStorage.getRegisterPreference()) {
-                        sharedPreferenceStorage.setRegisterPreference(true);
-                        sharedPreferenceStorage.setIsLoggedInPreference(false);
+                    if(SQLiteHelper.getInstance(getContext()).isUserNameUnique(
+                            etUserName.getText().toString())){
+                        showProgressBar();
+                        if(!sharedPreferenceStorage.getRegisterPreference()) {
+                            sharedPreferenceStorage.setRegisterPreference(true);
+                            sharedPreferenceStorage.setIsLoggedInPreference(false);
+                            UserCredentials user = new UserCredentials();
+                            user.userId = user._id;
+                            user.userName = etUserName.getText().toString();
+                            user.userPassword = etPassword.getText().toString();
+                            SQLiteHelper.getInstance(getContext()).insert(user);
+                        }
+                        Objects.requireNonNull(getActivity()).getSupportFragmentManager()
+                                .beginTransaction().replace(android.R.id.content, new LoginFragment())
+                                .commit();
+                    }else{
+                        etUserName.setError(getContext().getResources()
+                                .getString(R.string.user_name_already_exists));
                     }
-                    Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
-                            .replace(android.R.id.content, new LoginFragment()).commit();
                 }
                 break;
 

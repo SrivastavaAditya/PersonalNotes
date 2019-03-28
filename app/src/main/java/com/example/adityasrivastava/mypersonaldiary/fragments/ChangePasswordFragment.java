@@ -15,8 +15,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
+import com.example.adityasrivastava.mypersonaldiary.dbHelper.SQLiteHelper;
+import com.example.adityasrivastava.mypersonaldiary.events.LogoutEvent;
+import com.example.adityasrivastava.mypersonaldiary.utils.Utility;
+
+import org.greenrobot.eventbus.EventBus;
+
+import java.util.Objects;
 
 /**
  * The type Change password fragment.
@@ -74,7 +82,8 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_change_password, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_change_password, container,
+                false);
         unbinder = ButterKnife.bind(this, rootView);
         btnChangePassword.setOnClickListener(this);
         return rootView;
@@ -95,8 +104,24 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
         switch (view.getId()){
             case R.id.button_change_password:
                 if(validate()){
-                    if(validateUser()){
-                        //To-Do
+                    if(SQLiteHelper.getInstance(getContext())
+                            .checkUserCredentials(etUserName.getText().toString(),
+                                    etOldPassword.getText().toString())){
+                        int changed = SQLiteHelper.getInstance(getContext())
+                                .changeCredentials(SQLiteHelper.getInstance(getContext())
+                                        .getUserId(etUserName.getText().toString()),
+                                        etUserName.getText().toString(),
+                                        etNewPassword.getText().toString());
+                        if(changed>0){
+                            EventBus.getDefault().post(new LogoutEvent());
+                            Utility.showMessage(getContext(), getResources()
+                                    .getString(R.string.password_changed_successfully));
+                            Objects.requireNonNull(getActivity()).onBackPressed();
+                        }else{
+                            Utility.showMessage(getContext(), getResources()
+                                    .getString(R.string.could_not_change_password));
+                            Objects.requireNonNull(getActivity()).onBackPressed();
+                        }
                     }
                 }
                 break;
@@ -104,10 +129,6 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
             default:
                 break;
         }
-    }
-
-    private boolean validateUser() {
-        return true;
     }
 
     private boolean validate() {

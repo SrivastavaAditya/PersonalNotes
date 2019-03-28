@@ -51,34 +51,41 @@ public class SplashScreenActivity extends AppCompatActivity {
                 public void run() {
                     switch(finalI){
                         case 0:
-                            tvLoader.setText(Utility.updateLoadingText(SplashScreenActivity.this, "."));
+                            tvLoader.setText(Utility
+                                    .updateLoadingText(SplashScreenActivity.this, "."));
                             break;
 
                         case 1:
-                            tvLoader.setText(Utility.updateLoadingText(SplashScreenActivity.this, ".."));
+                            tvLoader.setText(Utility
+                                    .updateLoadingText(SplashScreenActivity.this, ".."));
                             break;
 
                         case 2:
-                            tvLoader.setText(Utility.updateLoadingText(SplashScreenActivity.this, "..."));
+                            tvLoader.setText(Utility
+                                    .updateLoadingText(SplashScreenActivity.this, "..."));
                             break;
 
                         case 3:
-                            tvLoader.setText(Utility.updateLoadingText(SplashScreenActivity.this, ""));
+                            tvLoader.setText(Utility
+                                    .updateLoadingText(SplashScreenActivity.this, ""));
                             break;
 
                         default:
                             if(preferenceStorage.getRegisterPreference()){
                                 if(preferenceStorage.getLoginPreference()){
-                                    Intent intent = new Intent(SplashScreenActivity.this, HomeActivity.class);
+                                    Intent intent = new Intent(SplashScreenActivity.this,
+                                            HomeActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }else{
-                                    Intent intent = new Intent(SplashScreenActivity.this, LoginOrRegisterActivity.class);
+                                    Intent intent = new Intent(SplashScreenActivity.this,
+                                            LoginOrRegisterActivity.class);
                                     startActivity(intent);
                                     finish();
                                 }
                             }else{
-                                Intent intent = new Intent(SplashScreenActivity.this, LoginOrRegisterActivity.class);
+                                Intent intent = new Intent(SplashScreenActivity.this,
+                                        LoginOrRegisterActivity.class);
                                 startActivity(intent);
                                 finish();
                             }

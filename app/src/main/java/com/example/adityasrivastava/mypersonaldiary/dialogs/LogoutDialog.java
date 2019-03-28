@@ -3,8 +3,6 @@ package com.example.adityasrivastava.mypersonaldiary.dialogs;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -76,9 +74,11 @@ public class LogoutDialog implements View.OnClickListener {
     public LogoutDialog(Context context) {
         dialog = new Dialog(context);
 
-        View rootView = ((Activity)context).getLayoutInflater().inflate(R.layout.logout_dialog, null);
+        View rootView = ((Activity)context).getLayoutInflater().inflate(R.layout.logout_dialog,
+                null);
         dialog.setContentView(rootView);
-        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
+        Objects.requireNonNull(dialog.getWindow())
+                .setBackgroundDrawableResource(android.R.color.transparent);
         unbinder = ButterKnife.bind(this, rootView);
         btnClose.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
@@ -94,7 +94,6 @@ public class LogoutDialog implements View.OnClickListener {
                 break;
 
             case R.id.button_logout:
-                //To-Do
                 dialog.dismiss();
                 EventBus.getDefault().postSticky(new LogoutEvent());
                 break;

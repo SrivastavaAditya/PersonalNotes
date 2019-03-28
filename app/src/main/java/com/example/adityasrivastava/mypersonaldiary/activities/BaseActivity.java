@@ -39,6 +39,12 @@ public class BaseActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .add(android.R.id.content, new ChangePasswordFragment()).commit();
                 break;
+
+            case R.id.menu_profile:
+                /*
+                To-Do: Open Profile
+                 */
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

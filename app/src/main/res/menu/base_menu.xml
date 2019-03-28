@@ -4,6 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_profile"
+        android:title="@string/profile"
+        android:enabled="true"/>
+
+    <item
         android:id="@+id/menu_change_password"
         android:title="@string/change_password"
         android:enabled="true"/>

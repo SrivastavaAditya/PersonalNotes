@@ -23,6 +23,8 @@ import android.widget.TextView;
 
 import com.example.adityasrivastava.mypersonaldiary.R;
 import com.example.adityasrivastava.mypersonaldiary.activities.HomeActivity;
+import com.example.adityasrivastava.mypersonaldiary.dbHelper.SQLiteHelper;
+import com.example.adityasrivastava.mypersonaldiary.models.LoginUser;
 import com.example.adityasrivastava.mypersonaldiary.utils.preferences.SharedPreferenceStorage;
 
 import java.util.Objects;
@@ -124,10 +126,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         switch(view.getId()){
             case R.id.button_login:
                 if(validate()){
-                    if(validateCredentials()){
+                    if(SQLiteHelper.getInstance(getContext())
+                            .checkUserCredentials(etUserName.getText().toString(),
+                                    etPassword.getText().toString())){
                         if(!sharedPreferenceStorage.getLoginPreference()){
                             showProgressBar();
                             sharedPreferenceStorage.setIsLoggedInPreference(true);
+                            LoginUser loginUser = new LoginUser();
+                            loginUser.userName = etUserName.getText().toString();
+                            SQLiteHelper.getInstance(getContext()).insert(loginUser);
                             Intent intent = new Intent(getActivity(), HomeActivity.class);
                             startActivity(intent);
                             Objects.requireNonNull(getActivity()).finish();
@@ -140,17 +147,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.text_register:
-                getActivity().getSupportFragmentManager().beginTransaction()
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(android.R.id.content, new RegisterFragment()).commit();
                 break;
 
             default:
                 break;
         }
-    }
-
-    private boolean validateCredentials() {
-        return true;
     }
 
     private boolean validate() {
